@@ -5,10 +5,8 @@ const app = express();
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    name: 'Whatever',
-  });
+router.get('/posts', (req, res) => {
+  res.json({ content: CONNECTION_STRING });
 });
 
 app.use('/.netlify/functions/api', router);

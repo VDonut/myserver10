@@ -2,6 +2,7 @@ const express = require('express');
 const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 const Post = require('./postSchema');
 
 require('dotenv').config();
@@ -13,6 +14,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 const router = express.Router();
+
+router.get('/', (req, res, next) => {
+  try {
+    res.sendFile(path.resolve('./dist/index.html'));
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.get('/posts', async (req, res, next) => {
   try {

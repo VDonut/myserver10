@@ -5,11 +5,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <title>Blog Rest API</title>
+  <style>
+    li {
+      margin: 1rem 0;
+    }
+  </style>
 </head>
 
-<body>
-  <h3>Welcome</h3>
+<body class="text-black-50">
+  <div class="container">
+    <h1 class="text-info">Blog rest api</h1>
+    <h3>Endpoints</h3>
+    <ul class="list-unstyled">
+      <li><strong>GET all posts: </strong>https://heuristic-aryabhata-f620d5.netlify.app/.netlify/functions/api/posts
+      </li>
+      <li><strong>GET post by id:
+        </strong>https://heuristic-aryabhata-f620d5.netlify.app/.netlify/functions/api/posts/:id
+      </li>
+      <li><strong>POST post: </strong>https://heuristic-aryabhata-f620d5.netlify.app/.netlify/functions/api/posts</li>
+      <li><strong>DELETE post by id:
+        </strong>https://heuristic-aryabhata-f620d5.netlify.app/.netlify/functions/api/posts/:id</li>
+    </ul>
+  </div>
 </body>
 
 </html>

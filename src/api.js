@@ -41,9 +41,27 @@ router.get('/posts/:id', async (req, res, next) => {
 
 router.post('/posts', async (req, res, next) => {
   try {
-    console.log(req.body);
     const createdPost = await Post.create(req.body);
     return res.status(201).json(createdPost);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/posts/:id', async (req, res, next) => {
+  try {
+    const postId = req.params.id;
+    const deletedPost = await Post.findByIdAndDelete(postId, {
+      useFindAndModify: false,
+    });
+    if (!deletedPost) {
+      return res.status(422).send({
+        errors: {
+          message: `No post with id: ${postId} was found.`,
+        },
+      });
+    }
+    return res.status(200).send(deletedPost);
   } catch (err) {
     next(err);
   }

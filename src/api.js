@@ -23,6 +23,22 @@ router.get('/posts', async (req, res, next) => {
   }
 });
 
+router.get('/posts/:id', async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(422).json({
+        errors: {
+          message: `No post with id ${req.params.id} found.`,
+        },
+      });
+    }
+    return res.status(200).json(post);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post('/posts', async (req, res, next) => {
   try {
     console.log(req.body);

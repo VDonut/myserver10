@@ -6,7 +6,7 @@ const postSchema = mongoose.Schema(
     body: { type: String, required: true },
     author: { type: String, default: 'Unknown' },
     categories: { type: Array, default: [] },
-    imgUrl: { type: String },
+    imgUrl: { type: String, default: null }
   },
   { collection: 'posts' }
 );

@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/posts', async (req, res, next) => {
-    const posts = await Post.find().exec();
+    const posts = Post.find().exec();
     return res.status(200).json(posts);
 });
 

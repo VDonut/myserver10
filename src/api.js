@@ -24,12 +24,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/posts', async (req, res, next) => {
-  try {
     const posts = await Post.find().exec();
     return res.status(200).json(posts);
-  } catch (err) {
-    next(err);
-  }
 });
 
 router.get('/posts/:id', async (req, res, next) => {
